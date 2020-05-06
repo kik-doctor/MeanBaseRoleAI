@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from '../../environments/environment';
 
-const API_URL = 'http://localhost:8080/api/test/';
+const API_URL = environment.API_URL;
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,22 @@ export class UserService {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
+
+  createProduct(formData) {
+    return this.http.post<any>(API_URL + 'create-product', formData, {
+      reportProgress: true,
+      observe: 'events'
+    });
   }
 
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
+  getProducts(userId) {
+    const params = new HttpParams().set('userID',  userId);
+    return this.http.get<any>(API_URL + 'get-product', {params});
   }
 
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
+  getImageData(imageName) {
+    const params = new HttpParams().set('imageName', imageName);
+    return this.http.get<any>(API_URL + 'get-image-data', {params});
   }
+
 }

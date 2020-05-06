@@ -68,10 +68,12 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "quotemark": [
-      true,
-      "single"
+      false,
+      "single",
+      "avoid-escape"
     ],
     "trailing-comma": false,
+    "no-trailing-whitespace": true,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,

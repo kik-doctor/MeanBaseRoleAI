@@ -2,19 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { ProfileComponent } from './profile/profile.component';
+
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import {LoginComponent} from './pages/auth/login/login.component';
+import {RegisterComponent} from './pages/auth/register/register.component';
+import {HomeComponent} from './pages/home/home.component';
+import {BoardUserComponent} from './pages/dashboard/board-user/board-user.component';
+import {ProfileComponent} from './pages/dashboard/profile/profile.component';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from "@angular/material/card";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -22,17 +27,20 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    BoardAdminComponent,
     BoardUserComponent,
-    BoardModeratorComponent,
     ProfileComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatProgressBarModule,
+        MatIconModule,
+        MatButtonModule
+    ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

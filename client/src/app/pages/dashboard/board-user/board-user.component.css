@@ -1,0 +1,9 @@
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mat-card-image {
+  height: 200px;
+}

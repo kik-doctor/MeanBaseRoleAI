@@ -15,18 +15,6 @@ app.get("/all", controller.allAccess);
 
 app.get("/user", [authJwt.verifyToken], controller.userBoard);
 
-app.get(
-    "/mod",
-    [authJwt.verifyToken, authJwt.isModerator],
-    controller.moderatorBoard
-);
-
-app.get(
-    "/admin",
-    [authJwt.verifyToken, authJwt.isAdmin],
-    controller.adminBoard
-);
-
 app.post(
     "/create-product",
     controller.createProduct
@@ -37,4 +25,8 @@ app.get(
     controller.getProduct
 );
 
+app.get(
+    "/get-image-data",
+    controller.getImageData
+);
 module.exports = app;
