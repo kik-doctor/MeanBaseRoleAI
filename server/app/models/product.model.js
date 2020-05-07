@@ -5,35 +5,35 @@ const Product = mongoose.model(
     new mongoose.Schema({
         image_name: String,
         user_id: String,
-        standard_mark_name: {
+        silver_mark_name: {
             type: String,
             default: ''
         },
-        standard_mark_certainty: {
+        silver_mark_value: {
             type: Number,
             default: 0
         },
-        location_name: {
+        assay_location_name: {
             type: String,
             default: 'Australia'
         },
-        location_certainty: {
+        assay_location_value: {
             type: Number,
             default: 0
         },
-        date_number: {
+        date_name: {
             type: Date,
             default: Date.now()
         },
-        date_certainty: {
+        date_value: {
             type: Number,
             default: 0
         },
-        markers_mark_name: {
+        maker_mark_name: {
             type: String,
             default: ''
         },
-        markers_mark_certainty: {
+        maker_mark_value: {
             type: Number,
             default: 0
         }

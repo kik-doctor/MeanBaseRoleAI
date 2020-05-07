@@ -25,8 +25,5 @@ app.get(
     controller.getProduct
 );
 
-app.get(
-    "/get-image-data",
-    controller.getImageData
-);
+
 module.exports = app;

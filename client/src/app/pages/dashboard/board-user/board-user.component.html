@@ -21,11 +21,33 @@
   </div>
 
 
-<div class="mt-5 row">
+<div class="mt-5 row" *ngIf="products">
   <ng-container  *ngFor="let product of products">
     <div  class="col-lg-3 col-md-4 col-sm-6 mt-4">
-      <mat-card >
+      <mat-card class="p-3">
         <img matCardImage  src="{{BASE_URL + 'image/' + product.image_name}}">
+        <br/>
+        <mat-card-subtitle>
+          The analysis result of : {{product.image_name}}
+        </mat-card-subtitle>
+        <mat-card-content>
+          <div class="d-flex">
+            <div class="col-6">Silver standard mark:</div>
+            <div class="col-6 overflow-auto">{{product.silver_mark_name}} ({{product.silver_mark_value}})</div>
+          </div>
+          <div class="d-flex">
+            <div class="col-6">Assay location:</div>
+            <div class="col-6 overflow-auto">{{product.assay_location_name}} ({{product.assay_location_value}})</div>
+          </div>
+          <div class="d-flex">
+            <div class="col-6">Date:</div>
+            <div class="col-6 overflow-auto">{{product.date_name}}({{product.date_value}})</div>
+          </div>
+          <div class="d-flex">
+            <div class="col-6">Makers mark:</div>
+            <div class="col-6 overflow-auto">{{product.maker_mark_name}}( {{product.maker_mark_value}})</div>
+          </div>
+        </mat-card-content>
       </mat-card>
     </div>
   </ng-container>

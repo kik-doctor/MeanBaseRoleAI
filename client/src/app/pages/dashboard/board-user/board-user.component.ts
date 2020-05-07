@@ -41,6 +41,7 @@ export class BoardUserComponent implements OnInit {
     formData.append('file', file.data);
     formData.append('id', this.userId);
     file.inProgress = true;
+    // Upload image to server.
     this.userService.createProduct(formData).pipe(
       map(event => {
         switch (event.type) {
@@ -56,14 +57,10 @@ export class BoardUserComponent implements OnInit {
         return of(`${file.data.name} upload failed.`);
       })).subscribe((event: any) => {
       if (typeof (event) === 'object') {
-        console.log(event.body);
-        if(event.body.image_name) {
-          this.userService.getImageData(event.body.image_name).subscribe(res => {
-            if(res.status) {
-              console.log('1111111111111');
-              // this.getProducts();
-            }
-          })
+        if(event.body) {
+          this.getProducts();
+          file.inProgress = false;
+          file.progress = 0;
         }
       }
     });
@@ -89,7 +86,6 @@ export class BoardUserComponent implements OnInit {
     };
     fileUpload.click();
   }
-
 
 
 }

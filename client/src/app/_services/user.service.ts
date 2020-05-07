@@ -29,9 +29,5 @@ export class UserService {
     return this.http.get<any>(API_URL + 'get-product', {params});
   }
 
-  getImageData(imageName) {
-    const params = new HttpParams().set('imageName', imageName);
-    return this.http.get<any>(API_URL + 'get-image-data', {params});
-  }
 
 }
