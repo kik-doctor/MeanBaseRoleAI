@@ -5,9 +5,9 @@ const app = express();
 const fileUpload = require('express-fileupload');
 const routes = require('./app/routes');
 
-let corsOptions = {origin: "http://localhost:4200"};
-
-app.use(cors(corsOptions));
+// let corsOptions = {origin: "http://localhost:4200"};
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(fileUpload({createParentPath: true}));

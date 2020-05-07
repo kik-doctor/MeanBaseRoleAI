@@ -8,11 +8,6 @@ const app = new Clarifai.App({
     apiKey: clarifaiApiKey
 });
 
-
-
-
-
-
 exports.allAccess = (req, res) => {
     res.status(200).send("Welcome to our platform.");
 };
